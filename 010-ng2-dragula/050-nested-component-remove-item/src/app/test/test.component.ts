@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import Config from './config';
 
 @Component({
@@ -11,10 +11,22 @@ export class TestComponent implements OnInit {
   @Input()
   config: Config;
 
+  @Output()
+  delete: EventEmitter<Config> = new EventEmitter();
+
   constructor() { }
 
   ngOnInit() {
     console.log(this.config);
+  }
+
+  onDeleteClick(){
+    this.delete.emit(this.config);
+  }
+
+  onDelete(config: Config){
+    const index = this.config.items.indexOf(config);
+    this.config.items.splice(index, 1);
   }
 
 }

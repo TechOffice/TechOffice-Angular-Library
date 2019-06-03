@@ -1,0 +1,8 @@
+<div *ngIf="config">
+  {{config.name}}
+  <form>
+      <div>
+        <input [(ngModel)]="config.name" name="name"/>
+      </div>
+  </form>
+</div>

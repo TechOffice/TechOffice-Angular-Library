@@ -1,0 +1,13 @@
+<div style="border: 1px solid black; display: flex">
+  <div style="flex-basis: 80%">
+    <app-designer-item [config]="config"></app-designer-item>
+  </div>
+  <div style="flex-basis: 20%">
+    <app-designer-editor></app-designer-editor>
+  </div>
+</div>
+<div>
+  {{
+    itemsJson
+  }}
+</div>

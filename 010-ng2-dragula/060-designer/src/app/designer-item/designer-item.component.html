@@ -1,4 +1,4 @@
-<div style="border: 1px solid black">
+<div style="border: 1px solid black" (click)="onSelectItem($event)">
   <div>
       name: {{config.name}}
   </div>
@@ -11,7 +11,7 @@
   <div *ngIf="config.type==='CONTAINER'" >
     <div dragula="DRAGGABLES" [(dragulaModel)]="config.items" class="container" >
       <div *ngFor="let item of config.items">
-        <app-test [config]="item" (delete)="onDelete($event)"></app-test>  
+        <app-designer-item [config]="item" (delete)="onDelete($event)"></app-designer-item>  
       </div>
   </div>
   </div>

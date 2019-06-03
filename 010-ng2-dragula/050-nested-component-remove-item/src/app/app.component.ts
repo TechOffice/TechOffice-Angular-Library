@@ -41,33 +41,15 @@ export class AppComponent {
   
   constructor(private dragulaService: DragulaService){
 
-    this.subs.add(this.dragulaService.drag("DRAGGABLES")
-      .subscribe(({ name, el, source }) => {
-        console.log("Dragging");
-      })
-    );
-    this.subs.add(this.dragulaService.drop("DRAGGABLES")
-      .subscribe(({ name, el, target, source, sibling }) => {
-        console.log("dropping");
-      })
-    );
-
-    this.subs.add(this.dragulaService.dropModel("DRAGGABLES")
-      .subscribe(({ sourceModel, targetModel, item }) => {
-        console.log("dropModel");
-      })
-    );
-
-    this.subs.add(this.dragulaService.drop()
-      .subscribe(({ name, el, target, source, sibling }) => {
-        console.log("Dropping");
-      })
-    );
-
-
   }
   
   get itemsJson(){
     return JSON.stringify(this.items);
   }
+
+  onDelete(config: Config){
+    const index = this.items.indexOf(config);
+    this.items.splice(index, 1);
+  }
+  
 }
