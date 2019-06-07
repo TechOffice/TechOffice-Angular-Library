@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import Config from './designer-item/config';
+import Config from './designer-model/config';
 import { Subject, Observable } from 'rxjs';
 
 @Injectable({
@@ -17,6 +17,7 @@ export class DesignerService {
   }
 
   public selectedConfigUpdate(config: Config): void{
+    this._selectedConfig = config;
     this._selectedConfigSubject.next(config);
   }
 

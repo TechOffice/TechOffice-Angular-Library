@@ -1,3 +1,4 @@
+import { DragulaService } from 'ng2-dragula';
 import { DesignerService } from './../designer.service';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import Config from '../designer-model/config';
@@ -15,7 +16,9 @@ export class DesignerItemComponent implements OnInit {
   @Output()
   delete: EventEmitter<Config> = new EventEmitter();
 
-  constructor(private _designerService: DesignerService) { }
+  constructor(private _designerService: DesignerService,
+    private _dragulaService: DragulaService) { 
+  }
 
   ngOnInit() {
     console.log(this.config);

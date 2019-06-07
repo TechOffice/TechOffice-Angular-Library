@@ -1,6 +1,16 @@
 enum ControlType {
+    DESIGNER = 'DESIGNER',
     CONTAINER = 'CONTAINER',
-    INPUT = 'INPUT'
+    BUTTON = 'BUTTON',
+    TABLE = 'TABLE',
+    INPUT = 'INPUT',
+    TEXTAREA = 'TEXTAREA',
+    SELECT = 'SELECT',
+    CHECKBOX = 'CHECKBOX',
+    RADIO = 'RADIO',
+    LABEL = 'LABEL',
+    NUMBER = 'NUMBER',
+    DATEPICKER = 'DATEPICKER'
 }
 
 export default ControlType;
