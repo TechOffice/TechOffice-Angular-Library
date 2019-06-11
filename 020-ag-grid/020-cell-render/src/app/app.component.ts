@@ -1,6 +1,5 @@
+import { ExampleRenderComponent } from './example-render/example-render.component';
 import { Component } from '@angular/core';
-import { DragulaService } from 'ng2-dragula';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -12,9 +11,9 @@ export class AppComponent {
   title = 'app';
 
   columnDefs = [
-      {headerName: 'Col1', field: 'col1' },
-      {headerName: 'Col2', field: 'col2' },
-      {headerName: 'Col3', field: 'col3'}
+      {headerName: 'Col1', field: 'col1'},
+      {headerName: 'Col2', field: 'col2'},
+      {headerName: 'Col3', field: 'col3', cellRendererFramework: ExampleRenderComponent}
   ];
 
   rowData = [
