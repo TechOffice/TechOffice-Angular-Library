@@ -17,7 +17,7 @@ export class AppComponent {
   }
 
   columnDefs = [
-      {headerName: 'Col1', field: 'col1' },
+      {headerName: 'Col1', field: 'col1'},
       {headerName: 'Col2', field: 'col2'},
       {headerName: 'Col3', field: 'col3', cellRendererFramework: ExampleRenderComponent, 
         valueGetter: function(params){
@@ -113,6 +113,7 @@ export class AppComponent {
   }
 
   tabToNextCell(params){
+    console.log(params);
     if (params.nextCellPosition){
       const column = params.previousCellPosition.column;
       if (column.colId == 'col3'){
