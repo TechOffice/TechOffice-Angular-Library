@@ -10,6 +10,8 @@ import { listLocales, defineLocale, deLocale } from 'ngx-bootstrap/chronos';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  title = 'ngx-bootstrap-workspace';
+  bsValue: Date;
   newDate: Date;
 
   constructor(private _bsLocaleService: BsLocaleService){
@@ -17,7 +19,7 @@ export class AppComponent {
   }
 
   onInputChange(value: string){
-    this.newDate = new Date(value)
+    this.newDate = new Date(value);
   }
 
   newDateToIsoString(): string{

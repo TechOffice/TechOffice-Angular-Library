@@ -1,7 +1,7 @@
 <div style="padding: 10px">
   <div class="row">
     <div class="col-xs-12 col-12 col-md-4 form-group">
-      <input [value]="newDate" (change)="onInputChange($event.target.value)" style="width: 300px"/>
+      <input [value]="newDate.toISOString()" (change)="onInputChange($event.target.value)" style="width: 300px"/>
     </div>
   </div>
   <div class="row">
