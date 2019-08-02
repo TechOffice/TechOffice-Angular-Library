@@ -30,7 +30,7 @@ import { TimepickerModule } from 'ngx-bootstrap/timepicker';
     PaginationModule.forRoot(),
     ProgressbarModule.forRoot(),
     SortableModule.forRoot(),
-    TimepickerModule.forRoot()
+    TimepickerModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]
