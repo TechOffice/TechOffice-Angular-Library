@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ExampleRenderComponent } from './example-render.component';
+import { ExampleRenderInputComponent } from './example-render-input.component';
 
-describe('ExampleRenderComponent', () => {
-  let component: ExampleRenderComponent;
-  let fixture: ComponentFixture<ExampleRenderComponent>;
+describe('ExampleRenderInputComponent', () => {
+  let component: ExampleRenderInputComponent;
+  let fixture: ComponentFixture<ExampleRenderInputComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ExampleRenderComponent ]
+      declarations: [ ExampleRenderInputComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ExampleRenderComponent);
+    fixture = TestBed.createComponent(ExampleRenderInputComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

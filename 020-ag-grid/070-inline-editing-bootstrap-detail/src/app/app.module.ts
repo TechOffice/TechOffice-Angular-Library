@@ -5,20 +5,25 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { AgGridModule } from 'ag-grid-angular';
-import { ExampleRenderComponent } from './example-render-dropdown/example-render-dropdown.component';
+import { ExampleRenderDropdownComponent } from './example-render-dropdown/example-render-dropdown.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { ExampleRenderInputComponent } from './example-render-input/example-render-input.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ExampleRenderComponent,
+    ExampleRenderDropdownComponent,
+    ExampleRenderInputComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
 
-    AgGridModule.withComponents([ExampleRenderComponent]),
+    AgGridModule.withComponents([
+      ExampleRenderDropdownComponent,
+      ExampleRenderInputComponent
+    ]),
 
     BsDropdownModule.forRoot()
 

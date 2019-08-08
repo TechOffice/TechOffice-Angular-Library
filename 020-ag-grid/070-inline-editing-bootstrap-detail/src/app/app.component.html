@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="grid-wrapper">
+  <div class="grid-wrapper" style="max-height: 300px; overflow: auto">
     <ag-grid-angular  
       class="ag-theme-balham"
       [rowData]="rowData" 
@@ -9,5 +9,5 @@
       [domLayout]="'autoHeight'">
     </ag-grid-angular>
   </div>
-  <button>Add</button>
+  <button (click)="add()">Add</button>
 </div>
