@@ -6,22 +6,19 @@
   </div>
   <div class="row">
     <div class="col-xs-12 col-12 col-md-4 form-group">
-      Normal Datepicker:
-	  <input type="text"
-             placeholder="Datepicker"
-             class="form-control"
-             bsDatepicker
-             [(bsValue)]="newDate"/>
+      Custom Timezone:
+      <input type="number" [(ngModel)]="timezone" min="-12" max="12"/>
+      <button (click)="updateTimeZone()">Update Timezone</button>
     </div>
   </div>
   <div class="row">
     <div class="col-xs-12 col-12 col-md-4 form-group">
-      UTC Datepicker
-	  <app-utc-datepicker  [(ngModel)]="newDate"></app-utc-datepicker>
+      Custom Timezone Datepicker:
+	    <app-custom-timezone-datepicker  [(ngModel)]="newDate"></app-custom-timezone-datepicker>
     </div>
   </div>
   <div>
-    <b>Value (UTC):</b>
+    <b>Value (Local Timezone):</b>
     {{newDate | date: 'yyyy/MM/dd HH:mm:ss': 'UTC'}}
   </div>
   <div>
@@ -29,7 +26,7 @@
     {{newDate | date: 'yyyy/MM/dd HH:mm:ss'}}
   </div>
   <div>
-    <b>newDateToIsoString</b>
+    <b>Iso String:</b>
     {{newDateToIsoString()}}
   </div>  
 </div>
