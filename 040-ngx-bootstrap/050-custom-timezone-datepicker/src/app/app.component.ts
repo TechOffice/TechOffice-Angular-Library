@@ -1,3 +1,4 @@
+import { browser } from 'protractor';
 import { CustomTimezoneDatepickerService } from './custom-timezone-datepicker/custom-timezone-datepicker.service';
 import { Component } from '@angular/core';
 import { enGbLocale } from 'ngx-bootstrap/locale';
@@ -11,13 +12,16 @@ import { listLocales, defineLocale, deLocale } from 'ngx-bootstrap/chronos';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
   title = 'ngx-bootstrap-workspace';
   timezone: number;
   bsValue: Date;
   newDate: Date;
+  browserTimezone: number = 0;
 
   constructor(private _customTimezoneDatepickerService: CustomTimezoneDatepickerService){
     this.newDate = new Date();
+    this.browserTimezone = this.newDate.getTimezoneOffset() / -60;
   }
 
   onInputChange(value: string){

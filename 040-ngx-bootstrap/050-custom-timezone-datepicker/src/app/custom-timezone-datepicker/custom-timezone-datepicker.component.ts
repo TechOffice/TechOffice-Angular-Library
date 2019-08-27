@@ -51,12 +51,14 @@ export class CustomTimezoneDatepickerComponent implements OnInit, ControlValueAc
     setTimeout(()=>{
       this.value = val;
       if (val instanceof Date){
+        console.log('bsValueChange: ' + val);
         let tmpDate = new Date(val.getTime());
         tmpDate.setHours(0);
         tmpDate.setMinutes(0);
         tmpDate.setSeconds(0);
         tmpDate.setMilliseconds(0);
         tmpDate = new Date(tmpDate.getTime() - (val.getTimezoneOffset() + this.timezone * 60) * 60 * 1000)
+        console.log('bsValueChange: ' + tmpDate);
         this.onChange(tmpDate);  
       }else {
         this.onChange(val);
@@ -67,7 +69,9 @@ export class CustomTimezoneDatepickerComponent implements OnInit, ControlValueAc
   writeValue(val: any): void {
     if (val){
       if (val instanceof Date){
+        console.log('writeValue: ' + val);
         this.value = new Date(val.getTime() + (val.getTimezoneOffset() + + this.timezone * 60) * 60 * 1000);
+        console.log('writeValue2: ' + this.value);
       }else {
         this.value = val;
       }
