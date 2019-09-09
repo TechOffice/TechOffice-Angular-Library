@@ -20,7 +20,8 @@ export class CustomTimezoneDatepickerComponent implements OnInit, ControlValueAc
   destory$ : Subject<boolean> = new Subject<boolean>();
 
   timezone: number = 0;
-  value: Date;
+  inputValue: Date;
+  outputValue: Date;
 
   onChange: (value: any) => void;
 
@@ -34,22 +35,21 @@ export class CustomTimezoneDatepickerComponent implements OnInit, ControlValueAc
       takeUntil(this.destory$),
       tap(val => {
         this.timezone = val;
-        if (this.value instanceof Date){
-          let tmpDate = new Date(this.value.getTime());
+        if (this.inputValue instanceof Date){
+          let tmpDate = new Date(this.inputValue.getTime());
           tmpDate.setHours(0);
           tmpDate.setMinutes(0);
           tmpDate.setSeconds(0);
           tmpDate.setMilliseconds(0);
-          tmpDate = new Date(tmpDate.getTime() - (this.value.getTimezoneOffset() + this.timezone * 60) * 60 * 1000)
-          this.onChange(tmpDate);  
+          tmpDate = new Date(tmpDate.getTime() - (this.inputValue.getTimezoneOffset() + this.timezone * 60) * 60 * 1000)
+          this.onChange(tmpDate);
+          this.outputValue = tmpDate;
         }
       })
     ).subscribe()
   }
 
   bsValueChange(val){
-    setTimeout(()=>{
-      this.value = val;
       if (val instanceof Date){
         console.log('bsValueChange: ' + val);
         let tmpDate = new Date(val.getTime());
@@ -57,23 +57,25 @@ export class CustomTimezoneDatepickerComponent implements OnInit, ControlValueAc
         tmpDate.setMinutes(0);
         tmpDate.setSeconds(0);
         tmpDate.setMilliseconds(0);
-        tmpDate = new Date(tmpDate.getTime() - (val.getTimezoneOffset() + this.timezone * 60) * 60 * 1000)
+        tmpDate = new Date(tmpDate.getTime() - (val.getTimezoneOffset() + this.timezone * 60) * 60 * 1000);
+        this.outputValue = tmpDate;
         console.log('bsValueChange: ' + tmpDate);
         this.onChange(tmpDate);  
       }else {
         this.onChange(val);
       }
-    });
+    
   }
 
   writeValue(val: any): void {
     if (val){
       if (val instanceof Date){
         console.log('writeValue: ' + val);
-        this.value = new Date(val.getTime() + (val.getTimezoneOffset() + + this.timezone * 60) * 60 * 1000);
-        console.log('writeValue2: ' + this.value);
+        this.inputValue = new Date(val.getTime() + (val.getTimezoneOffset() + + this.timezone * 60) * 60 * 1000);
+        this.outputValue = this.inputValue;
+        console.log('writeValue2: ' + this.inputValue);
       }else {
-        this.value = val;
+        this.inputValue = val;
       }
       this._changeDetectorRef.detectChanges();
     }
