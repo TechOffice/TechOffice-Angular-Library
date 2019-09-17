@@ -16,7 +16,9 @@ export class AppComponent {
   title = 'ngx-bootstrap-workspace';
   timezone: number;
   testDate: Date;
+  testDateJsonStr   = "{\"testDate\": \"2019-09-01T00:00:00Z\"}";
   testDates: Date[];
+  testDatesJsonStr  = "{\"testDates\": [\"2019-09-01T00:00:00Z\", \"2019-09-02T00:00:00Z\"]}";
 
   browserTimezone: number = 0;
 
@@ -32,5 +34,13 @@ export class AppComponent {
 
   updateTimeZone(){
     this._customTimezoneDatepickerService.updateTimeZone(this.timezone);
+  }
+
+  loadTestDate(){
+    this.testDate = new Date(JSON.parse(this.testDateJsonStr).testDate);
+  }
+
+  loadTestDates(){
+    this.testDates = [new Date(JSON.parse(this.testDatesJsonStr).testDates[0]), new Date(JSON.parse(this.testDatesJsonStr).testDates[1])];
   }
 }

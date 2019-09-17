@@ -11,6 +11,10 @@
       Custom Timezone Datepicker:
 	    <app-custom-timezone-datepicker  [(ngModel)]="testDate"></app-custom-timezone-datepicker>
     </div>
+    <div class="col-xs-12 col-12 col-md-4 form-group">
+      <textarea [(ngModel)]="testDateJsonStr"></textarea>
+      <button (click)="loadTestDate()">Data Load</button>
+    </div>
   </div>
   <div>
     <b>Date Value (UTC Timezone):</b>
@@ -29,6 +33,10 @@
     <div class="col-xs-12 col-12 col-md-4 form-group">
       Custom Timezone Datepicker:
 	    <app-custom-timezone-daterangepicker  [(ngModel)]="testDates"></app-custom-timezone-daterangepicker>
+    </div>
+    <div class="col-xs-12 col-12 col-md-4 form-group">
+      <textarea [(ngModel)]="testDatesJsonStr"></textarea>
+      <button (click)="loadTestDates()">Data Load</button>
     </div>
   </div>
 </div>
