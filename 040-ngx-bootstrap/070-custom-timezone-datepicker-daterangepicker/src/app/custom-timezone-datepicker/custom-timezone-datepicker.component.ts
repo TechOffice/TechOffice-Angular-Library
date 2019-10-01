@@ -50,21 +50,20 @@ export class CustomTimezoneDatepickerComponent implements OnInit, ControlValueAc
   }
 
   bsValueChange(val){
-      if (val instanceof Date){
-        console.log('bsValueChange: ' + val);
-        let tmpDate = new Date(val.getTime());
-        tmpDate.setHours(0);
-        tmpDate.setMinutes(0);
-        tmpDate.setSeconds(0);
-        tmpDate.setMilliseconds(0);
-        tmpDate = new Date(tmpDate.getTime() - (val.getTimezoneOffset() + this.timezone * 60) * 60 * 1000);
-        this.outputValue = tmpDate;
-        console.log('bsValueChange: ' + tmpDate);
-        this.onChange(tmpDate);  
-      }else {
-        this.onChange(val);
-      }
-    
+	if (val instanceof Date){
+		console.log('bsValueChange: ' + val);
+		let tmpDate = new Date(val.getTime());
+		tmpDate.setHours(0);
+		tmpDate.setMinutes(0);
+		tmpDate.setSeconds(0);
+		tmpDate.setMilliseconds(0);
+		tmpDate = new Date(tmpDate.getTime() - (val.getTimezoneOffset() + this.timezone * 60) * 60 * 1000);
+		this.outputValue = tmpDate;
+		console.log('bsValueChange: ' + tmpDate);
+		this.onChange(tmpDate);  
+	}else {
+		this.onChange(val);
+	}
   }
 
   writeValue(val: any): void {
@@ -78,7 +77,12 @@ export class CustomTimezoneDatepickerComponent implements OnInit, ControlValueAc
         this.inputValue = val;
       }
       this._changeDetectorRef.detectChanges();
-    }
+    }else {
+	  if (this.inputValue != val){
+		 this.inputValue = val;
+	  }
+	}
+	
   }
 
   registerOnChange(fn: (value: any) => void): void {
